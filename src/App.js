@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person.js';
+import './Person/Person.css';
 import Cakes from './Cakes.js/Cakes.js';
 
 class App extends Component {
