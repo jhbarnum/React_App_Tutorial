@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person.js';
-import './Person/Person.css';
+
 import Cakes from './Cakes.js/Cakes.js';
 
 class App extends Component {
@@ -41,10 +41,18 @@ nameChangeHandler = (event) => {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'grey',
+      font: 'inherit',
+      border: '1px solid red',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>hello world</h1>
-        <button onClick={() => this.switchNameHandler('JB')}>Switch Name</button>
+        <button style={style} onClick={() => this.switchNameHandler('JB')}>Switch Name</button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}> I like coding</Person>
