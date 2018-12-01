@@ -15,6 +15,7 @@ class App extends Component {
       { name: 'Georgia', age: 3 },
       { name: 'Abel', age: .5 }
     ]
+    //showPersons:false
   }
 nameChangeHandler = (event) => {
   this.setState({
@@ -49,27 +50,36 @@ nameChangeHandler = (event) => {
       cursor: 'pointer'
     };
 
-    
+   let persons = null;
+
+   if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}> I like coding</Person>
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            click={this.switchNameHandler.bind(this, 'J-Rock')} />
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age} />
+          <Person
+            name={this.state.persons[3].name}
+            age={this.state.persons[3].age}
+            changed={this.nameChangeHandler} />
+          <Cakes
+            name={this.state.cakes[0].name} />
+        </div>
+      );
+   }
     return (
       <div className="App">
         <h1>hello world</h1>
-        <button style={style} onClick={() => this.switchNameHandler('JB')}>Switch Name</button>
-        <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}> I like coding</Person>
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'J-Rock')}/>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age}/>
-        <Person 
-          name={this.state.persons[3].name} 
-          age={this.state.persons[3].age} 
-          changed={this.nameChangeHandler} />
-        <Cakes 
-          name={this.state.cakes[0].name}/>
+        <button style={style} 
+        onClick={this.switchNameHandler}>Switch Name</button>
+        {persons}
       </div>
     );
   }
