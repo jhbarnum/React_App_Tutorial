@@ -56,7 +56,14 @@ nameChangeHandler = (event) => {
       if (this.state.showPersons) {
           persons = (
             <div>
-              <Person
+              {this.state.persons.map(person => {
+                return <Person 
+                name={person.name}
+                age={person.age}
+                click={person.click}
+                changed={person.changed}/>
+              })}
+              {/* <Person
                 name={this.state.persons[0].name}
                 age={this.state.persons[0].age}> I like coding</Person>
               <Person
@@ -69,7 +76,7 @@ nameChangeHandler = (event) => {
               <Person
                 name={this.state.persons[3].name}
                 age={this.state.persons[3].age}
-                changed={this.nameChangeHandler} />
+                changed={this.nameChangeHandler} /> */}
               <Cakes
                 name={this.state.cakes[0].name} />
             </div> 
