@@ -10,10 +10,10 @@ class App extends Component {
       {name: 'chocolate', age: '5 days'}
     ],
     persons: [
-      { name: 'Jared', age: 41 },
-      { name: 'Laura', age: 34 },
-      { name: 'Georgia', age: 3 },
-      { name: 'Abel', age: .5 }
+      { id: '1234', name: 'Jared', age: 41 },
+      { id: '2345', name: 'Laura', age: 34 },
+      { id: '3456', name: 'Georgia', age: 3 },
+      { id: '4567', name: 'Abel', age: .5 }
     ],
     showPersons:false
   }
@@ -59,7 +59,8 @@ nameChangeHandler = (event) => {
                 name={person.name}
                 age={person.age}
                 click={()=>this.deletePersonHandler(index)}
-                changed={person.changed}/>
+                changed={person.changed}
+                key={person.id}/>
               })}
               {/* <Person
                 name={this.state.persons[0].name}
