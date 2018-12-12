@@ -17,7 +17,7 @@ class App extends Component {
     ],
     showPersons:false
   }
-nameChangeHandler = (event) => {
+nameChangeHandler = (event, id) => {
   this.setState({
     persons: [
       { name: 'Jared', age: 40 },
@@ -59,7 +59,7 @@ nameChangeHandler = (event) => {
                 name={person.name}
                 age={person.age}
                 click={()=>this.deletePersonHandler(index)}
-                changed={person.changed}
+                changed={(event) => person.nameChangeHandler()}
                 key={person.id}/>
               })}
               {/* <Person
