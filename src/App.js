@@ -18,19 +18,20 @@ class App extends Component {
     showPersons:false
   }
 nameChangeHandler = (event, id) => {
+  console.log(this.state.persons)
   const personIndex = this.state.persons.find(p => {
     return p.id === id;
   });
-
+ //console.log(personIndex);
   const person = {
     ...this.state.persons[personIndex]
   };
-
+//console.log(this.state.persons)
   person.name = event.target.value;
-
+//console.log(person.name);
   const persons = [...this.state.persons];
   persons[personIndex] = person;
-
+console.log(persons)
   this.setState({persons: persons});
 }
 
@@ -38,6 +39,7 @@ nameChangeHandler = (event, id) => {
     console.log('Clicked');
     const doesShow = this.state.showPersons;
     this.setState({showPersons: !doesShow});
+    console.log(this.state.persons)
   }
 
   deletePersonHandler = (personIndex) => {
