@@ -20,7 +20,7 @@ class App extends Component {
 nameChangeHandler = (event, id) => {
   console.log(this.state.persons)
   const personIndex = this.state.persons.findIndex(p => {
-    console.log(personIndex + ' ' + id + ' ' + p.id);
+    console.log(id + ' ' + p.id);
     return p.id === id;
   });
  //console.log(personIndex);
@@ -34,6 +34,7 @@ nameChangeHandler = (event, id) => {
   persons[personIndex] = person;
 
   this.setState({persons: persons});
+  console.log(persons)
 }
 
   togglePersonsHandler = (newName) => {
